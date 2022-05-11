@@ -1,10 +1,24 @@
-# syouki_app
+# SYOUKI THE FOOD APP
 
-A new Flutter project.
+This is a food delivery app. This Project is created using Firebase services and tools, different flutter state management solutions, complex navigations, realtime control over maps, understanding payment etc.
 
-## Getting Started
+## FEATURES
+#####  > Registration & Login (Email/Password & Google Authention)
+#####  > Search & Filter Foods
+#####  > Add Food To Cart
+#####  > Add Food To Favourite
+#####  > Place Order
+#####  > Schedule Order
+#####  > Payment
+#####  > Order History
+#####  > Rate & Review
+#####  > Edit Profile
+#####  > Rewards
+#####  > Realtime Order Tracking
+#####  > Push Notification
 
-This project is a starting point for a Flutter application.
+## >Admin & User Panals.
+
 
 A few resources to get you started if this is your first Flutter project:
 
