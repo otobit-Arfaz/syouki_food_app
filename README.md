@@ -3,7 +3,7 @@
 This is a food delivery app. This Project is created using Firebase services and tools, different flutter state management solutions, complex navigations, realtime control over maps, understanding payment etc. 
 
 ## FEATURES
-  > Registration & Login (Email/Password & Google Authention)
+  ##> Registration & Login (Email/Password & Google Authention)
   > Search & Filter Foods
   > Add Food To Cart
   > Add Food To Favourite
