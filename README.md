@@ -4,20 +4,20 @@ This is a food delivery app. This Project is created using Firebase services and
 
 ## FEATURES
 #####  > Registration & Login (Email/Password & Google Authention)
-  > Search & Filter Foods
-  > Add Food To Cart
-  > Add Food To Favourite
-  > Place Order
-  > Schedule Order
-  > Payment
-  > Order History
-  > Rate & Review
-  > Edit Profile
-  > Rewards
-  > Realtime Order Tracking
-  > Push Notification
+#####  > Search & Filter Foods
+#####  > Add Food To Cart
+#####  > Add Food To Favourite
+#####  > Place Order
+#####  > Schedule Order
+#####  > Payment
+#####  > Order History
+#####  > Rate & Review
+#####  > Edit Profile
+#####  > Rewards
+#####  > Realtime Order Tracking
+#####  > Push Notification
 
-=>Admin & User Panals.
+>Admin & User Panals.
     
 
 A few resources to get you started if this is your first Flutter project:
