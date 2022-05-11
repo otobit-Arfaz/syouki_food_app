@@ -14,6 +14,7 @@ class AppTheme {
   //colors
   static const Color black = Color(0xFF121016);
   static const Color orange = Color(0xFFFFBD69);
+  static const Color red = Color(0xFFFF6363);
   static const Color white = Color(0xFFFFFFFF);
   static const Color purple = Color(0xFF543864);
   static const Color darkBlue = Color(0xFF202040);
@@ -116,17 +117,25 @@ class AppTheme {
   static ThemeData theme = ThemeData(
       backgroundColor: black,
       scaffoldBackgroundColor: black,
-      primaryColor: Colors.red,
+      primaryColor: red,
       hintColor: white,
-      indicatorColor: Colors.red,
+      indicatorColor: red,
       radioTheme: RadioThemeData(
-        fillColor: MaterialStateProperty.all(Colors.red),
+        fillColor: MaterialStateProperty.all(red),
         splashRadius: 24,
       ),
       iconTheme: const IconThemeData(color: grey),
-      splashColor: Colors.red.withOpacity(.4),
+      splashColor: red.withOpacity(.4),
       inputDecorationTheme: InputDecorationTheme(
           fillColor: black,
           filled: true,
-          border: OutlineInputBorder(borderRadius: cardRadius)));
+          border: OutlineInputBorder(borderRadius: cardRadius)
+      ),
+      primaryIconTheme : const IconThemeData(
+      color: white,
+    ),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      unselectedWidgetColor: white,
+    textTheme: textTheme,
+  );
 }
