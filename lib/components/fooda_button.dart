@@ -47,9 +47,9 @@ class _FodaButtonState extends State<FodaButton> {
               : Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if(widget.leadingIcon != null) Padding(padding: const EdgeInsets.only(right: AppTheme.elementSpacing * 0.25),
+              if(widget.leadingIcon != null) Padding(padding: const EdgeInsets.only(right: AppTheme.elementSpacing),
               child: widget.leadingIcon,),
-              Text(widget.title,style: Theme.of(context).textTheme.button),
+              Text(widget.title,style: Theme.of(context).textTheme.subtitle1),
             ],
           ),
         )

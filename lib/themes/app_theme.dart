@@ -12,6 +12,7 @@ class AppTheme {
   static const Color blackLight = Color(0xFF292031);
 
   static const double buttonHeight = 50;
+
   static Size size(BuildContext context) => MediaQuery.of(context).size;
 
   //colors
@@ -23,7 +24,6 @@ class AppTheme {
   static const Color darkBlue = Color(0xFF202040);
   static const Color grey = Color(0xFF636363);
   static const Color darkBlueLight = Color(0xFF382843);
-
 
   //Text theme
   static TextTheme textTheme = const TextTheme(
@@ -120,27 +120,43 @@ class AppTheme {
     ),
   );
   static ThemeData theme = ThemeData(
-      backgroundColor: black,
-      scaffoldBackgroundColor: black,
-      primaryColor: red,
-      hintColor: white,
-      indicatorColor: red,
-      radioTheme: RadioThemeData(
-        fillColor: MaterialStateProperty.all(red),
-        splashRadius: 24,
+    backgroundColor: black,
+    scaffoldBackgroundColor: black,
+    primaryColor: red,
+    hintColor: white,
+    indicatorColor: red,
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateProperty.all(red),
+      splashRadius: 24,
+    ),
+    iconTheme: const IconThemeData(color: grey),
+    splashColor: red.withOpacity(.4),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: black,
+      filled: true,
+      labelStyle: textTheme.bodyText2,
+      hintStyle: textTheme.bodyText2?.copyWith(
+        color: AppTheme.white.withOpacity(0.9)
       ),
-      iconTheme: const IconThemeData(color: grey),
-      splashColor: red.withOpacity(.4),
-      inputDecorationTheme: InputDecorationTheme(
-          fillColor: black,
-          filled: true,
-          border: OutlineInputBorder(borderRadius: cardRadius)
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: AppTheme.cardPadding),
+      border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(99)),
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(99),
       ),
-      primaryIconTheme : const IconThemeData(
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(99),
+      ),
+    ),
+    primaryIconTheme: const IconThemeData(
       color: white,
     ),
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      unselectedWidgetColor: white,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    unselectedWidgetColor: white,
     textTheme: textTheme,
   );
 }
