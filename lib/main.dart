@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:syouki_app/components/fooda_button.dart';
+import 'package:syouki_app/screens/authentication/authentication_view.dart';
+import 'package:syouki_app/screens/onboard/onboard_view.dart';
 import 'package:syouki_app/themes/app_theme.dart';
 
 import 'components/app_scafffold.dart';
@@ -16,25 +17,25 @@ class Foodapp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: const Home(),
+      home: const OnboardView(),
     );
   }
 }
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppScaffold(
-      body:Center(
-        child: FodaButton(onTap: () {},
-          gradiant: [AppTheme.orange,AppTheme.red],
-          leadingIcon: Icon(Icons.facebook,color: AppTheme.white,),
-        title: 'Sign In',),
-      ),
-    );
-  }
-}
-
-
+//
+// class Home extends StatelessWidget {
+//   const Home({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return AppScaffold(
+//       body:Center(
+//         child: FodaButton(onTap: () {},
+//           gradiant: [AppTheme.orange,AppTheme.red],
+//           leadingIcon: Icon(Icons.facebook,color: AppTheme.white,),
+//         title: 'Sign In',),
+//       ),
+//     );
+//   }
+// }
+//
+//

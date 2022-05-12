@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   //spaces
-  static const double cardPadding = 25;
-  static const double elementSpacing = cardPadding / 0.5;
+  static const double cardPadding = 24;
+  static const double elementSpacing = cardPadding * 0.5;
   static const double bottomNavBarHeight = 64;
   static const Duration animationDuration = Duration(milliseconds: 300);
   static BorderRadius cardRadius = BorderRadius.circular(14);
@@ -22,6 +22,8 @@ class AppTheme {
   static const Color purple = Color(0xFF543864);
   static const Color darkBlue = Color(0xFF202040);
   static const Color grey = Color(0xFF636363);
+  static const Color darkBlueLight = Color(0xFF382843);
+
 
   //Text theme
   static TextTheme textTheme = const TextTheme(
