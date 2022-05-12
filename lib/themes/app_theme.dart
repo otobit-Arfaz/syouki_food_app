@@ -9,6 +9,9 @@ class AppTheme {
   static BorderRadius cardRadius = BorderRadius.circular(14);
   static const double iconSize = cardPadding;
 
+  static const Color blackLight = Color(0xFF292031);
+
+  static const double buttonHeight = 50;
   static Size size(BuildContext context) => MediaQuery.of(context).size;
 
   //colors

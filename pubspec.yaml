@@ -23,34 +23,29 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
-
-
   uses-material-design: true
 
-    asset: fonts/ArimaMadurai-Bold.ttf
-      - assets/images/
-      - assets/icons/
+  assets:
+    - assets/images/
+    - assets/icons/
 
-    fonts:
-     - family: ArimaMadurai
-       fonts:
-         - asset: assets/fonts/ArimaMadurai-Bold.ttf
-           weight: 700
-         - asset: assets/fonts/ArimaMadurai-Medium.ttf
-           weight: 500
-         - asset: assets/fonts/ArimaMadurai-Regular.ttf
-           weight: 400
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/OpenSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 700
 
-     - family: OpenSans
-         fonts:
-         - asset: assets/fonts/OpenSans-Bold.ttf
-           weight: 700
-         - asset: assets/fonts/OpenSans-Medium.ttf
-           weight: 500
-         - asset: assets/fonts/OpenSans-Regular.ttf
-           weight: 400
-         - asset: assets/fonts/OpenSans-SemiBold.ttf
-           weight: 600
-
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+    - family: ArimaMadurai
+      fonts:
+        - asset: assets/fonts/ArimaMadurai-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/ArimaMadurai-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/ArimaMadurai-Bold.ttf
+          weight: 700
