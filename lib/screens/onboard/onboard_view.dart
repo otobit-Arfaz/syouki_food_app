@@ -4,6 +4,8 @@ import 'package:syouki_app/components/app_scafffold.dart';
 import 'package:syouki_app/components/fooda_button.dart';
 import 'package:syouki_app/components/oval_paint.dart';
 import 'package:syouki_app/constant/image_path.dart';
+import 'package:syouki_app/constant/route_name.dart';
+import 'package:syouki_app/screens/authentication/authentication_view.dart';
 import 'package:syouki_app/themes/app_theme.dart';
 
 class OnboardView extends StatelessWidget {
@@ -40,17 +42,22 @@ class OnboardView extends StatelessWidget {
                           style: TextStyle(fontFamily: 'Mainstay',fontSize: 35,fontWeight: FontWeight.bold,color: Colors.white),
                         ),
                     ),
-                    const SizedBox(height: AppTheme.cardPadding * 0.6),
+                    const SizedBox(height: AppTheme.cardPadding * 0.9),
 
                     SizedBox(
-                      width: AppTheme.size(context).width * 0.6,
+                      width: AppTheme.size(context).width * 0.7,
                       child: Column(
                         children: [
-                          const AuthHeader("Welcome\nto Food Delivery Store"),
-                          const SizedBox(height: AppTheme.elementSpacing * 0.5),
-                          FodaButton(title: "Sign In", onTap: () {}),
-                          const SizedBox(height: AppTheme.elementSpacing * 0.5),
-                          FodaButton(title: "Sign Up",gradiant: const [AppTheme.darkBlue], onTap: () {})
+                          const AuthHeader1("Welcome\nto Food Delivery Store"),
+                          const SizedBox(height: AppTheme.elementSpacing * 0.9),
+                          FodaButton(title: "Sign In", onTap: () {
+                            Navigator.of(context).pushNamed(authPath, arguments: AuthenticationViewState.signIn);
+
+                          }),
+                          const SizedBox(height: AppTheme.elementSpacing * 2),
+                          FodaButton(title: "Sign Up",gradiant: const [AppTheme.darkBlue], onTap: () {
+                            Navigator.of(context).pushNamed(authPath, arguments: AuthenticationViewState.signUp);
+                          })
 
                         ],
                       ),
@@ -76,7 +83,24 @@ class AuthHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(title,
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline1?.copyWith(fontWeight: FontWeight.w900,color: AppTheme.orange,height: 1),
+      style: Theme.of(context).textTheme.headline1?.copyWith(fontWeight: FontWeight.w900,color: AppTheme.red,height: 1),
     );
   }
 }
+
+class AuthHeader1 extends StatelessWidget {
+  final String title;
+  const AuthHeader1(
+      this.title, {
+        Key? key,
+      }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(title,
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.headline3?.copyWith(fontWeight: FontWeight.w700,color: Colors.grey,height: 1),
+    );
+  }
+}
+

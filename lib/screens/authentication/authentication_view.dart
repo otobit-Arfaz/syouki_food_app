@@ -6,6 +6,7 @@ import 'package:syouki_app/components/app_scafffold.dart';
 import 'package:syouki_app/components/fooda_button.dart';
 import 'package:syouki_app/constant/icon_path.dart';
 import 'package:syouki_app/constant/image_path.dart';
+import 'package:syouki_app/constant/route_name.dart';
 import 'package:syouki_app/screens/onboard/onboard_view.dart';
 import 'package:syouki_app/themes/app_theme.dart';
 
@@ -22,43 +23,71 @@ class AuthenticationView extends StatelessWidget {
     return AppScaffold(
       body: Stack(
         children: [
-          if (viewState == AuthenticationViewState.ComeSignin)
-            Stack(
-              children: const [
-                 Positioned(
-                  left: -110,
-                  top: 10,
-                  child: const AmaobaPaint(
-                  color: AppTheme.darkBlueLight,
-                ),
-                ),
-                Positioned(
-                  left: -20,
-                  top: -70,
-                  child: const AmaobaPaint(
-                    color: AppTheme.darkBlue,
+          if (viewState == AuthenticationViewState.signUp)
+            if (viewState == AuthenticationViewState.ComeSignin)
+              Stack(
+                children: [
+                  const Positioned(
+                    left: -110,
+                    top: 10,
+                    child: const AmaobaPaint(
+                      color: AppTheme.darkBlueLight,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            if (viewState == AuthenticationViewState.signIn || viewState == AuthenticationViewState.signUp)
-
-    Transform(
+                  const Positioned(
+                    left: -20,
+                    top: -70,
+                    child: AmaobaPaint(
+                      color: AppTheme.darkBlue,
+                    ),
+                  ),
+                ],
+              ),
+          if (viewState == AuthenticationViewState.signIn ||
+              viewState == AuthenticationViewState.signUp)
+            Transform(
               alignment: Alignment.center,
               transform: Matrix4.rotationY(pi),
               child: const AmaobaPaint(
                 color: AppTheme.darkBlueLight,
               ),
-          ),
-          if (viewState == AuthenticationViewState.signIn || viewState == AuthenticationViewState.signUp)
-          Positioned(
-            right: -60,
-            top: -60,
-            child: Image.asset(
-            viewState == AuthenticationViewState.signUp ? ImagePath.fry : ImagePath.salad,
-              height: 300,
             ),
-          ),
+          if (viewState == AuthenticationViewState.signIn ||
+              viewState == AuthenticationViewState.signUp)
+            Positioned(
+              right: -60,
+              top: -60,
+              child: Image.asset(
+                viewState == AuthenticationViewState.signUp
+                    ? ImagePath.fry
+                    : ImagePath.salad,
+                height: 300,
+              ),
+            ),
+          if (viewState == AuthenticationViewState.signIn ||
+              viewState == AuthenticationViewState.signUp)
+            Positioned(
+              left: 15,
+              top: 40,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  color: AppTheme.red,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(28),
+                  ),
+                ),
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).popAndPushNamed(WelcomePath);
+
+                    },
+                    icon: Icon(Icons.arrow_back_ios_rounded,color: AppTheme.white,size: 25,)
+
+                ),
+              ),
+            ),
+
           // if (viewState == AuthenticationViewState.signUp)
           //   Transform(
           //     alignment: Alignment.center,
@@ -101,6 +130,7 @@ class AuthenticationView extends StatelessWidget {
     );
   }
 }
+
 class ComeSignin extends StatelessWidget {
   const ComeSignin({
     Key? key,
@@ -114,7 +144,6 @@ class ComeSignin extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: AppTheme.cardPadding * 3),
-
           Image.asset(
             ImagePath.avtar,
             height: 120,
@@ -145,13 +174,50 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(AppTheme.cardPadding),
-      child: Center(
-          child: Column(
+    return Stack(
+      children: [
+        // Positioned(
+        //   left: 15,
+        //   top: 40,
+        //   child: Container(
+        //     height: 50,
+        //     decoration: BoxDecoration(
+        //       color: AppTheme.red,
+        //       borderRadius: BorderRadius.all(
+        //         Radius.circular(28),
+        //       ),
+        //     ),
+        //     child: IconButton(
+        //       onPressed: () {
+        //         Navigator.of(context).popAndPushNamed(WelcomePath);
+        //
+        //       },
+        //       icon: Icon(Icons.arrow_back_ios_rounded,color: AppTheme.white,size: 25,)
+        //
+        //     ),
+        //   ),
+        // ),
+        Padding(
+          padding: const EdgeInsets.all(AppTheme.cardPadding),
+          child: Center(
+              child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Positioned(
+              //   left: 600,
+              //   top: 10,
+              //   // right: -500,
+              //   child: Image.asset(
+              //    IconPath.bc1,
+              //   color: Colors.teal,
+              //   height: 90,
+              // ),),
+              //
+
+              // left: 100,
+              // top: 100,
+
               const AuthHeader("Sign Up"),
               const SizedBox(height: AppTheme.cardPadding),
               Padding(
@@ -170,10 +236,8 @@ class SignUpView extends StatelessWidget {
               const SizedBox(height: AppTheme.cardPadding),
               Text(
                 "Or with Email",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(color: AppTheme.grey, fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    color: AppTheme.grey, fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: AppTheme.cardPadding),
               FoodaTextfield(
@@ -192,6 +256,8 @@ class SignUpView extends StatelessWidget {
               const SizedBox(height: AppTheme.cardPadding * 3),
             ],
           )),
+        ),
+      ],
     );
   }
 }
@@ -210,7 +276,7 @@ class SignInView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const AuthHeader("Sign In"),
+                    const AuthHeader("Sign In"),
           const SizedBox(height: AppTheme.cardPadding),
           Padding(
             padding: const EdgeInsets.symmetric(
