@@ -9,7 +9,7 @@ import 'package:syouki_app/constant/image_path.dart';
 import 'package:syouki_app/screens/onboard/onboard_view.dart';
 import 'package:syouki_app/themes/app_theme.dart';
 
-enum AuthenticationViewState { signIn, signUp, comeBack }
+enum AuthenticationViewState { signIn, signUp, ComeSignin }
 
 class AuthenticationView extends StatelessWidget {
   final AuthenticationViewState viewState;
@@ -22,7 +22,7 @@ class AuthenticationView extends StatelessWidget {
     return AppScaffold(
       body: Stack(
         children: [
-          if (viewState == AuthenticationViewState.signUp)
+          if (viewState == AuthenticationViewState.ComeSignin)
             Stack(
               children: const [
                  Positioned(
@@ -41,33 +41,57 @@ class AuthenticationView extends StatelessWidget {
                 ),
               ],
             ),
-            if (viewState == AuthenticationViewState.signIn)
-            Transform(
+            if (viewState == AuthenticationViewState.signIn || viewState == AuthenticationViewState.signUp)
+
+    Transform(
               alignment: Alignment.center,
               transform: Matrix4.rotationY(pi),
               child: const AmaobaPaint(
                 color: AppTheme.darkBlueLight,
               ),
           ),
-          if (viewState == AuthenticationViewState.signIn)
+          if (viewState == AuthenticationViewState.signIn || viewState == AuthenticationViewState.signUp)
           Positioned(
             right: -60,
             top: -60,
             child: Image.asset(
-              ImagePath.salad,
+            viewState == AuthenticationViewState.signUp ? ImagePath.fry : ImagePath.salad,
               height: 300,
             ),
           ),
+          // if (viewState == AuthenticationViewState.signUp)
+          //   Transform(
+          //     alignment: Alignment.center,
+          //     transform: Matrix4.rotationY(pi),
+          //     child: const AmaobaPaint(
+          //       color: AppTheme.darkBlueLight,
+          //     ),
+          //   ),
+          // if (viewState == AuthenticationViewState.signUp)
+          //   Positioned(
+          //     right: -60,
+          //     top: -60,
+          //     child: Image.asset(
+          //       ImagePath.fry,
+          //       height: 300,
+          //     ),
+          //   ),
           Builder(
             builder: (context) {
               if (viewState == AuthenticationViewState.signUp) {
-                return const ComeSignin();
+                return const SignUpView();
+
+                // return const ComeSignin();
               }
               if (viewState == AuthenticationViewState.signIn) {
                 return const SignInView();
+                // return Container();
+
               } else {
                 // return const SignUpView();
-                return Container();
+                return const ComeSignin();
+
+                // return Container();
               }
             },
           )
@@ -110,6 +134,64 @@ class ComeSignin extends StatelessWidget {
           FodaButton(title: "Sign In", onTap: () {}),
         ],
       ),
+    );
+  }
+}
+
+class SignUpView extends StatelessWidget {
+  const SignUpView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(AppTheme.cardPadding),
+      child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const AuthHeader("Sign Up"),
+              const SizedBox(height: AppTheme.cardPadding),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: AppTheme.cardPadding * 2),
+                child: FodaButton(
+                    title: "Sign In With Google",
+                    gradiant: const [AppTheme.orange, AppTheme.red],
+                    leadingIcon: Image.asset(
+                      IconPath.google,
+                      color: AppTheme.white,
+                      height: 35,
+                    ),
+                    onTap: () {}),
+              ),
+              const SizedBox(height: AppTheme.cardPadding),
+              Text(
+                "Or with Email",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText2
+                    ?.copyWith(color: AppTheme.grey, fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: AppTheme.cardPadding),
+              FoodaTextfield(
+                title: "Your Name",
+              ),
+              const SizedBox(height: AppTheme.elementSpacing),
+              FoodaTextfield(
+                title: "Your Email",
+              ),
+              const SizedBox(height: AppTheme.elementSpacing),
+              FoodaTextfield(
+                title: "Password",
+              ),
+              const SizedBox(height: AppTheme.cardPadding),
+              FodaButton(title: "Sign Up", onTap: () {}),
+              const SizedBox(height: AppTheme.cardPadding * 3),
+            ],
+          )),
     );
   }
 }

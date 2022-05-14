@@ -17,7 +17,7 @@ class Foodapp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: const AuthenticationView(viewState: AuthenticationViewState.signUp,),
+      home: const AuthenticationView(viewState: AuthenticationViewState.signUp),
     );
   }
 }

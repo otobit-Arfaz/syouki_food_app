@@ -76,7 +76,7 @@ class AuthHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(title,
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline3?.copyWith(fontWeight: FontWeight.w900,color: AppTheme.orange,height: 1),
+      style: Theme.of(context).textTheme.headline1?.copyWith(fontWeight: FontWeight.w900,color: AppTheme.orange,height: 1),
     );
   }
 }
