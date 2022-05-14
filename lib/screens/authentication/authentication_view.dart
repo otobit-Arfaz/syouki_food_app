@@ -77,61 +77,6 @@ class AuthenticationView extends StatelessWidget {
     );
   }
 }
-//
-// class SignUpView extends StatelessWidget {
-//   const SignUpView({
-//     Key? key,
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.all(AppTheme.cardPadding),
-//       child: Center(
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.end,
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             children: [
-//               const AuthHeader("Sign In"),
-//               const SizedBox(height: AppTheme.cardPadding),
-//               Padding(
-//                 padding: const EdgeInsets.symmetric(
-//                     horizontal: AppTheme.cardPadding * 2),
-//                 child: FodaButton(
-//                     title: "Sign In With Google",
-//                     gradiant: const [AppTheme.orange, AppTheme.red],
-//                     leadingIcon: Image.asset(
-//                       IconPath.google,
-//                       color: AppTheme.white,
-//                       height: 35,
-//                     ),
-//                     onTap: () {}),
-//               ),
-//               const SizedBox(height: AppTheme.cardPadding),
-//               Text(
-//                 "Or with Email",
-//                 style: Theme.of(context)
-//                     .textTheme
-//                     .bodyText2
-//                     ?.copyWith(color: AppTheme.grey, fontWeight: FontWeight.w700),
-//               ),
-//               const SizedBox(height: AppTheme.cardPadding),
-//               FoodaTextfield(
-//                 title: "Your Email",
-//               ),
-//               const SizedBox(height: AppTheme.elementSpacing),
-//               FoodaTextfield(
-//                 title: "Password",
-//               ),
-//               const SizedBox(height: AppTheme.cardPadding),
-//               FodaButton(title: "Sign In", onTap: () {}),
-//               const SizedBox(height: AppTheme.cardPadding * 3),
-//             ],
-//           )),
-//     );
-//   }
-// }
-
 class ComeSignin extends StatelessWidget {
   const ComeSignin({
     Key? key,
