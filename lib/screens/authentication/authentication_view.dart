@@ -9,23 +9,47 @@ import 'package:syouki_app/constant/image_path.dart';
 import 'package:syouki_app/screens/onboard/onboard_view.dart';
 import 'package:syouki_app/themes/app_theme.dart';
 
-enum AuthenticationViewState {signIn, signUp, comeBack}
+enum AuthenticationViewState { signIn, signUp, comeBack }
 
 class AuthenticationView extends StatelessWidget {
-  // final AuthenticationViewState viewState;
-  const AuthenticationView({Key? key}) : super(key: key);
+  final AuthenticationViewState viewState;
+
+  const AuthenticationView({Key? key, required this.viewState})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       body: Stack(
         children: [
-          Transform(
+          if (viewState == AuthenticationViewState.signUp)
+            Stack(
+              children: const [
+                 Positioned(
+                  left: -110,
+                  top: 10,
+                  child: const AmaobaPaint(
+                  color: AppTheme.darkBlueLight,
+                ),
+                ),
+                Positioned(
+                  left: -20,
+                  top: -70,
+                  child: const AmaobaPaint(
+                    color: AppTheme.darkBlue,
+                  ),
+                ),
+              ],
+            ),
+            if (viewState == AuthenticationViewState.signIn)
+            Transform(
               alignment: Alignment.center,
               transform: Matrix4.rotationY(pi),
-              child: AmaobaPaint(
+              child: const AmaobaPaint(
                 color: AppTheme.darkBlueLight,
-              )),
+              ),
+          ),
+          if (viewState == AuthenticationViewState.signIn)
           Positioned(
             right: -60,
             top: -60,
@@ -34,7 +58,111 @@ class AuthenticationView extends StatelessWidget {
               height: 300,
             ),
           ),
-          SignInView(),
+          Builder(
+            builder: (context) {
+              if (viewState == AuthenticationViewState.signUp) {
+                return const ComeSignin();
+              }
+              if (viewState == AuthenticationViewState.signIn) {
+                return const SignInView();
+              } else {
+                // return const SignUpView();
+                return Container();
+              }
+            },
+          )
+          // SignInView(),
+        ],
+      ),
+    );
+  }
+}
+//
+// class SignUpView extends StatelessWidget {
+//   const SignUpView({
+//     Key? key,
+//   }) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.all(AppTheme.cardPadding),
+//       child: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.end,
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               const AuthHeader("Sign In"),
+//               const SizedBox(height: AppTheme.cardPadding),
+//               Padding(
+//                 padding: const EdgeInsets.symmetric(
+//                     horizontal: AppTheme.cardPadding * 2),
+//                 child: FodaButton(
+//                     title: "Sign In With Google",
+//                     gradiant: const [AppTheme.orange, AppTheme.red],
+//                     leadingIcon: Image.asset(
+//                       IconPath.google,
+//                       color: AppTheme.white,
+//                       height: 35,
+//                     ),
+//                     onTap: () {}),
+//               ),
+//               const SizedBox(height: AppTheme.cardPadding),
+//               Text(
+//                 "Or with Email",
+//                 style: Theme.of(context)
+//                     .textTheme
+//                     .bodyText2
+//                     ?.copyWith(color: AppTheme.grey, fontWeight: FontWeight.w700),
+//               ),
+//               const SizedBox(height: AppTheme.cardPadding),
+//               FoodaTextfield(
+//                 title: "Your Email",
+//               ),
+//               const SizedBox(height: AppTheme.elementSpacing),
+//               FoodaTextfield(
+//                 title: "Password",
+//               ),
+//               const SizedBox(height: AppTheme.cardPadding),
+//               FodaButton(title: "Sign In", onTap: () {}),
+//               const SizedBox(height: AppTheme.cardPadding * 3),
+//             ],
+//           )),
+//     );
+//   }
+// }
+
+class ComeSignin extends StatelessWidget {
+  const ComeSignin({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(AppTheme.cardPadding),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(height: AppTheme.cardPadding * 3),
+
+          Image.asset(
+            ImagePath.avtar,
+            height: 120,
+          ),
+          const SizedBox(height: AppTheme.cardPadding),
+          Text(
+            'Welcome Back',
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
+          const SizedBox(height: AppTheme.elementSpacing),
+          const AuthHeader("Nice To See You Again !!"),
+          const SizedBox(height: AppTheme.cardPadding * 4),
+          FoodaTextfield(
+            title: "Password",
+          ),
+          const SizedBox(height: AppTheme.cardPadding),
+          FodaButton(title: "Sign In", onTap: () {}),
         ],
       ),
     );
@@ -73,8 +201,10 @@ class SignInView extends StatelessWidget {
           const SizedBox(height: AppTheme.cardPadding),
           Text(
             "Or with Email",
-            style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: AppTheme.grey, fontWeight: FontWeight.w700),
+            style: Theme.of(context)
+                .textTheme
+                .bodyText2
+                ?.copyWith(color: AppTheme.grey, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: AppTheme.cardPadding),
           FoodaTextfield(
